@@ -1,0 +1,11 @@
+package org.example.formconfigurator.model;
+
+import lombok.Getter;
+import lombok.experimental.SuperBuilder;
+
+import java.util.List;
+
+@SuperBuilder
+final class SelectOptionsInput extends FormControl implements WithOptions {
+        @Getter private List<String> options;
+}
