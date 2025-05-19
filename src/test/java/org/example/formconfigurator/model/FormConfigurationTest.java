@@ -1,6 +1,7 @@
 package org.example.formconfigurator.model;
 
 import org.junit.jupiter.api.Test;
+import org.springframework.http.HttpMethod;
 
 import java.util.List;
 
@@ -17,12 +18,17 @@ class FormConfigurationTest {
                                         .name("vehicleFromGroup")
                                         .controls(List.of(
                                                 SelectOptionsInput.builder()
-                                                        .options(List.of("car", "motorcycle", "truck"))
+                                                        .options(PredefinedOptions.of("car", "motorcycle", "truck"))
                                                         .model("type")
                                                         .name("vehicleType")
                                                         .label("Typ pojazdu")
                                                         .build(),
                                                 SelectOptionsInput.builder()
+                                                        .options(RemoteOptions.builder()
+                                                                .url("http://localhost:8080/api/config/dictionaries")
+                                                                .resourceId("carMakesDict")
+                                                                // default is GET
+                                                                .build())
                                                         .name("vehicleMake")
                                                         .model("make")
                                                         .label("Marka pojazdu")
