@@ -19,6 +19,7 @@ class FormConfigurationTest {
                                         .controls(List.of(
                                                 SelectOptionsInput.builder()
                                                         .options(PredefinedOptions.of("car", "motorcycle", "truck"))
+                                                        .validators(List.of(""))
                                                         .model("type")
                                                         .name("vehicleType")
                                                         .label("Typ pojazdu")
@@ -38,10 +39,13 @@ class FormConfigurationTest {
                                                         .model("model")
                                                         .label("Model pojazdu")
                                                         .build(),
-                                                SelectOptionsInput.builder()
+                                                TextInput.builder()
                                                         .name("productionYear")
                                                         .model("productionYear")
                                                         .label("Rok produkcji")
+                                                        .validators(List.of(
+
+                                                        ))
                                                         .build()
                                         ))
                                         .build(),
